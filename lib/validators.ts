@@ -18,5 +18,11 @@ export const insertProductSchema = z.object({
 	images: z.array(z.string()).min(1, "Product must have at least 1 image."),
 	isFeatured: z.boolean().default(false),
 	price: currency,
-  banner: z.string().nullable(),
+	banner: z.string().nullable(),
+});
+
+// Schema for signing users in
+export const signInSchema = z.object({
+	email: z.string().email("Invalid email address."),
+	password: z.string().min(6, "Password must be at least 6 characters."),
 });
