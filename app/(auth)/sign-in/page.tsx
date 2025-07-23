@@ -1,3 +1,6 @@
+import { FC } from "react";
+import { APP_NAME } from "@/lib/constants";
+import { Metadata } from "next";
 import {
 	Card,
 	CardContent,
@@ -5,11 +8,9 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import { APP_NAME } from "@/lib/constants";
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { FC } from "react";
+import CredentialsSignInForm from "./credentials-signin-form";
 
 interface ISignInPageProps {}
 
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 	title: "Sign In",
 };
 
-export const SignInPage: FC<ISignInPageProps> = (props) => {
+const SignInPage: FC<ISignInPageProps> = (props) => {
 	return (
 		<div className="w-full max-w-md mx-auto">
 			<Card>
@@ -37,9 +38,11 @@ export const SignInPage: FC<ISignInPageProps> = (props) => {
 					</CardDescription>
 				</CardHeader>
 				<CardContent className="space-y-4">
-
-        </CardContent>
+					<CredentialsSignInForm />
+				</CardContent>
 			</Card>
 		</div>
 	);
 };
+
+export default SignInPage;
